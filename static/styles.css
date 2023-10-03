@@ -1,0 +1,85 @@
+/**
+ * Copyright 2023 licenser.author
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+ body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+	text-align: center;
+    }
+    
+    .container {
+	background-color: #fff;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+	color: blue;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+    }
+    
+    form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    }
+    
+    input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+    }
+    
+    select {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+    }
+    
+    button {
+	padding: 10px 20px;
+	background-color: #007BFF;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+    }
+    
+    p.result {
+	font-size: 18px;
+	margin-top: 20px;
+	font-weight: bold;
+    }
+    
+    p {
+	font-size: 14px;
+	margin-top: 10px;
+    }
+    
+    span {
+	margin: 0 10px;
+    }
+    
