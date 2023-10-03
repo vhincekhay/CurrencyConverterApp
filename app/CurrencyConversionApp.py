@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder="CurrencyConverterApp/templates")
@@ -55,5 +56,8 @@ def convert():
         error_message = f"An error occurred: {str(e)}"
         return render_template('error.html', error_message=error_message)
 
+#if __name__ == '__main__':
+    #app.run(debug=True)
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use 5000 as the default port if PORT is not defined
+    app.run(host='0.0.0.0', port=port)
