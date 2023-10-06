@@ -30,7 +30,7 @@
     </div>
     <div class="rectangular-box-container">
         <div class="rectangular-box">
-            <p>Last Update: {{ last_update_time }}</p>
+            <button class="time-button" id="lastUpdateBtn">Last Update: {{ last_update_time }}</button>
             <form method="POST" action="/convert" class="mt-4">
                 <div class="form-row align-items-center">
                     <div class="col-md-4">
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </form>
-            <p class="mt-4">Next Update: {{ next_update_time }}</p>
+            <button class="time-button" id="nextUpdateBtn">Next Update: {{ next_update_time }}</button>
         </div>
     </div>
 </body>
