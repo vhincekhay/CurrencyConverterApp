@@ -29,10 +29,10 @@
     </div>
     <div class="rectangular-box-container">
         <div class="rectangular-box">
-            <p class="mt-4">Last Update: {{ last_update_time }}</p>
+            <button class="time-button" id="lastUpdateBtn">Last Update: {{ last_update_time }}</button>
             <p class="mt-4">{{ amount}} {{default_from_currency }} to {{ default_to_currency }} :</p>
             <p class="result mt-4">Converted Amount: {{ converted_amount }} {{default_to_currency}}</p>
-            <p class="mt-4">Next Update: {{ next_update_time }}</p>
+            <button class="time-button" id="nextUpdateBtn">Next Update: {{ next_update_time }}</button>
             <a href="/" class="btn btn-primary mt-4">Back to Converter</a>
         </div>
     </div>
