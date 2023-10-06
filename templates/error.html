@@ -6,12 +6,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Error</title>
+    <style>
+        body {
+            background-image: url('bckgrnd.webp');
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .rectangular-box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+        }
+
+        .rectangular-box {
+            background-color: yellow;
+            width: 80%; /* Adjust the width as needed */
+            padding: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: blue;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="rectangular-box-container">
+        <div class="rectangular-box">
             <h1 class="mt-5">Error</h1>
             <p class="mt-4">{{ error_message }}</p>
             <a href="/" class="btn btn-primary mt-4">Back to Converter</a>
+        </div>
     </div>
 </body>
 </html>
