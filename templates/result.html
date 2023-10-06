@@ -20,49 +20,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Currency Converter</title>
+    <title>Conversion Result</title>
+    <style>
+        body {
+            background-image: url('bckgrnd.webp');
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .rectangular-box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+        }
+
+        .rectangular-box {
+            background-color: yellow;
+            width: 80%; /* Adjust the width as needed */
+            padding: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: blue;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-            <h1 class="mt-5">Welcome to Real-Time Currency Converter</h1>
-            <p>Last Update: {{ last_update_time }}</p>
-            <form method="POST" action="/convert" class="mt-4">
-                <div class="form-row align-items-center">
-                    <div class="col-md-3">
-                    <!-- Input field for the amount -->
-                        <!-- <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric">-->
-                        <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric" class="form-control">
-                    <script>
-                            document.addEventListener('input', function (e) {
-                                if (e.target.id === 'amount') {
-                                    e.target.value = e.target.value.replace(/[^0-9.]/g, '');
-                                }
-                            });
-                    </script> 
-                    </div>
-                    <div class="col-md-3">
-                        <select name="from_currency" class="form-control">
-                            {% for currency in currencies %}
-                                <option value="{{ currency }}" {% if currency == default_from_currency %}selected{% endif %}>{{ currency }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="col-md-1">
-                        <span>to</span>
-                    </div>
-                    <div class="col-md-3">
-                        <select name="to_currency" class="form-control">
-                            {% for currency in currencies %}
-                                <option value="{{ currency }}" {% if currency == default_to_currency %}selected{% endif %}>{{ currency }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary btn-block mt-7">Convert</button>
-                    </div>
-                </div>
-            </form>
-            <p>Next Update: {{ next_update_time }}</p>
+    <div class="rectangular-box-container">
+        <div class="rectangular-box">
+            <h1 class="mt-5">Conversion Result</h1>
+            <p class="mt-4">Last Update: {{ last_update_time }}</p>
+            <p class="result mt-4">Converted Amount: {{ converted_amount }}</p>
+            <p class="mt-4">Next Update: {{ next_update_time }}</p>
+            <a href="/" class="btn btn-primary mt-4">Back to Converter</a>
+        </div>
     </div>
 </body>
 </html>
