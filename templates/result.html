@@ -13,6 +13,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,46 +22,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Conversion Result</title>
-    <style>
-        body {
-            background-image: url('bckgrnd.webp');
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        .rectangular-box-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .rectangular-box {
-            background-color: yellow;
-            width: 80%; 
-            padding: 100px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: blue;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
+    <div class="header text-center mt-5">
+        <h1>Conversion Result</h1>
+    </div>
     <div class="rectangular-box-container">
         <div class="rectangular-box">
-            <h1 class="mt-5">Conversion Result</h1>
             <p class="mt-4">Last Update: {{ last_update_time }}</p>
-            <p class="result mt-4">Converted Amount: {{ converted_amount }}</p>
+            <p class="mt-4">{{ amount}} {{default_from_currency }} to {{ default_to_currency }} :</p>
+            <p class="result mt-4">Converted Amount: {{ converted_amount }} {{default_to_currency}}</p>
             <p class="mt-4">Next Update: {{ next_update_time }}</p>
             <a href="/" class="btn btn-primary mt-4">Back to Converter</a>
         </div>
