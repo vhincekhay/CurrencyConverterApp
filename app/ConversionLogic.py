@@ -24,7 +24,7 @@ class RealTimeCurrencyConverter():
             self.next_update_date = self.data['time_next_update_utc']
         else:
             raise Exception('Unable to fetch currency data from the API')
-
+        
     def convert(self, from_currency, to_currency, amount):
         initial_amount = amount
         if from_currency != 'USD':
@@ -44,6 +44,20 @@ class RealTimeCurrencyConverter():
                 raise Exception('Unable to fetch currency data from the API')
         except Exception as e:
             raise Exception(f"An error occurred while updating currency data: {str(e)}")
+        
+    def strip_timezone_offset(self, timestamp):
+        # Check if the timestamp contains "+0000" at the end
+        if timestamp.endswith("+0000"):
+            # Remove the last 5 characters ("+0000")
+            timestamp = timestamp[:-5]
+        return timestamp
+
+    def get_last_update_time(self):
+        return self.strip_timezone_offset(self.last_update_date)
+
+    def get_next_update_time(self):
+        return self.strip_timezone_offset(self.next_update_date)
+    
 
     @staticmethod
     def restrictNumberOnly(action, string):
