@@ -13,47 +13,64 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
- /*body {
+ body {
+	background-image: url('backgroundd.jpg');
 	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    }
+
+    .rectangular-box-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+    }
+
+    .rectangular-box {
+	background-color: rgb(255, 208, 0);
+	width: 90%; 
+	padding: 100px;
+	border-radius: 0px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	text-align: center;
     }
-    
-    .container {
-	background-color: #fff;
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
+
     h1 {
 	color: blue;
-	font-size: 24px;
+	font-size: 48px;
 	font-weight: bold;
 	margin-bottom: 10px;
-    }*/
-    
+    }
+
+    .header {
+	background-color: rgb(255, 208, 0);
+	padding: 20px;
+	border-radius: 2px;
+	text-align: center;
+    }
+
+
     form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: auto;
     }
     
     input[type="text"] {
 	width: 100%;
 	padding: 10px;
 	margin: 5px 0;
-	border: 1px solid #ccc;
+	border: 0px solid #ccc;
 	border-radius: 5px;
     }
     
     select {
 	width: 100%;
-	padding: 10px;
-	margin: 5px 0;
+	padding: 20px;
+	margin: 10px 0;
 	border: 1px solid #ccc;
 	border-radius: 5px;
     }
@@ -75,11 +92,11 @@
     }
     
     p {
-	font-size: 14px;
+	font-size: 20px;
 	margin-top: 10px;
     }
     
     span {
-	margin: 0 10px;
+	margin: 0 5px;
     }
     
