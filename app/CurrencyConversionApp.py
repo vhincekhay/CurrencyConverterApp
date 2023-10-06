@@ -15,7 +15,7 @@
 import os
 from flask import Flask, render_template, request
 
-app = Flask(__name__, template_folder="../templates")
+app = Flask(__name__, static_folder="../static", template_folder="../templates")
 from ConversionLogic import RealTimeCurrencyConverter
 
 @app.route('/')
@@ -28,7 +28,7 @@ def index():
         default_from_currency = "USD"
         default_to_currency = "EUR"
 
-        return render_template('index.html', currencies=list(converter.currencies.keys()), last_update_time=converter.last_update_date, next_update_time=converter.next_update_date, converted_amount="", error_message="", default_from_currency=default_from_currency, default_to_currency=default_to_currency)
+        return render_template('index.html', currencies=list(converter.currencies.keys()), last_update_time=converter.get_last_update_time(), next_update_time=converter.get_next_update_time(), converted_amount="", error_message="", default_from_currency=default_from_currency, default_to_currency=default_to_currency)
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
         return render_template('error.html', error_message=error_message)
@@ -51,13 +51,10 @@ def convert():
         converted_amount = converter.convert(from_curr, to_curr, amount)
         converted_amount = round(converted_amount, 2)
 
-        return render_template('result.html', currencies=list(converter.currencies.keys()), last_update_time=converter.last_update_date, next_update_time=converter.next_update_date, converted_amount=converted_amount, default_from_currency=from_curr, default_to_currency=to_curr)
+        return render_template('result.html', currencies=list(converter.currencies.keys()), last_update_time=converter.get_last_update_time(), next_update_time=converter.get_next_update_time(), amount = amount, converted_amount=converted_amount, default_from_currency=from_curr, default_to_currency=to_curr)
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
         return render_template('error.html', error_message=error_message)
 
-#if __name__ == '__main__':
-    #app.run(debug=True)
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use 5000 as the default port if PORT is not defined
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
