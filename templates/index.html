@@ -22,46 +22,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Currency Converter</title>
     <style>
-        body {
-            background-image: url('bckgrnd.webp');
-            font-family: Arial, sans-serif;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        .rectangular-box-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; 
-        }
-
-        .rectangular-box {
-            background-color: yellow;
-            width: 80%; 
-            padding: 100px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        h1 {
-            color: blue;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
     </style>
 </head>
 <body>
+    <div class="header text-center mt-5">
+        <h1>CURRENCY XPLORER</h1>
+    </div>
     <div class="rectangular-box-container">
         <div class="rectangular-box">
-            <h1 class="mt-5">Welcome to Real-Time Currency Converter</h1>
             <p>Last Update: {{ last_update_time }}</p>
             <form method="POST" action="/convert" class="mt-4">
                 <div class="form-row align-items-center">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                     <!-- Input field for the amount -->
                         <!-- <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric">-->
                         <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric" class="form-control">
@@ -73,7 +45,7 @@
                             });
                     </script> 
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <select name="from_currency" class="form-control">
                             {% for currency in currencies %}
                                 <option value="{{ currency }}" {% if currency == default_from_currency %}selected{% endif %}>{{ currency }}</option>
@@ -83,19 +55,19 @@
                     <div class="col-md-1">
                         <span>to</span>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <select name="to_currency" class="form-control">
                             {% for currency in currencies %}
                                 <option value="{{ currency }}" {% if currency == default_to_currency %}selected{% endif %}>{{ currency }}</option>
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary btn-block mt-7">Convert</button>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary btn-block">Convert</button>
                     </div>
                 </div>
             </form>
-            <p>Next Update: {{ next_update_time }}</p>
+            <p class="mt-4">Next Update: {{ next_update_time }}</p>
         </div>
     </div>
 </body>
