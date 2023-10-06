@@ -37,6 +37,18 @@
 	text-align: center;
     }
 
+    .time-button {
+	padding: 10px 20px;
+	background-color: #000000;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	margin-top: 25px; 
+	margin-bottom: 10px;
+    }
+
     h1 {
 	color: blue;
 	font-size: 48px;
