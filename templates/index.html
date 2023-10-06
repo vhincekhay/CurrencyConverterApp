@@ -55,46 +55,48 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5">Welcome to Real-Time Currency Converter</h1>
-        <p>Last Update: {{ last_update_time }}</p>
-        <form method="POST" action="/convert" class="mt-4">
-            <div class="form-row align-items-center">
-                <div class="col-md-3">
-                  <!-- Input field for the amount -->
-                     <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric">
-                 <script>
-                         document.addEventListener('input', function (e) {
-                             if (e.target.id === 'amount') {
-                                 e.target.value = e.target.value.replace(/[^0-9.]/g, '');
-                             }
-                         });
-                </script> 
+    <div class="rectangular-box-container">
+        <div class="rectangular-box">
+            <h1 class="mt-5">Welcome to Real-Time Currency Converter</h1>
+            <p>Last Update: {{ last_update_time }}</p>
+            <form method="POST" action="/convert" class="mt-4">
+                <div class="form-row align-items-center">
+                    <div class="col-md-3">
+                    <!-- Input field for the amount -->
+                        <!-- <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric">-->
+                        <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric" class="form-control">
+                    <script>
+                            document.addEventListener('input', function (e) {
+                                if (e.target.id === 'amount') {
+                                    e.target.value = e.target.value.replace(/[^0-9.]/g, '');
+                                }
+                            });
+                    </script> 
+                    </div>
+                    <div class="col-md-3">
+                        <select name="from_currency" class="form-control">
+                            {% for currency in currencies %}
+                                <option value="{{ currency }}" {% if currency == default_from_currency %}selected{% endif %}>{{ currency }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <span>to</span>
+                    </div>
+                    <div class="col-md-3">
+                        <select name="to_currency" class="form-control">
+                            {% for currency in currencies %}
+                                <option value="{{ currency }}" {% if currency == default_to_currency %}selected{% endif %}>{{ currency }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary btn-block mt-7">Convert</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <select name="from_currency" class="form-control">
-                        {% for currency in currencies %}
-                            <option value="{{ currency }}" {% if currency == default_from_currency %}selected{% endif %}>{{ currency }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col-md-1">
-                    <span>to</span>
-                </div>
-                <div class="col-md-3">
-                    <select name="to_currency" class="form-control">
-                        {% for currency in currencies %}
-                            <option value="{{ currency }}" {% if currency == default_to_currency %}selected{% endif %}>{{ currency }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary btn-block">Convert</button>
-                </div>
-            </div>
-        </form>
-        <p>Next Update: {{ next_update_time }}</p>
+            </form>
+            <p>Next Update: {{ next_update_time }}</p>
+        </div>
     </div>
 </body>
 </html>
-
