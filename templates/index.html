@@ -18,6 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon-32x32.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Currency Converter</title>
@@ -28,11 +29,15 @@
     <div class="header text-center mt-5">
         <h1>CURRENCY XPLORER</h1>
     </div>
+    <!--Ticker-->
+    <div>
+        <iframe width="2000" height="60" src="https://rss.app/embed/v1/ticker/tYtlrR6kwrcaBOS4" frameborder="0"></iframe> 
+    </div>
     <div class="rectangular-box-container">
         <div class="rectangular-box">
-            <button class="time-button" id="lastUpdateBtn">Last Update: {{ last_update_time }}</button>
+            <button class="time-button boxInput" id="lastUpdateBtn">Last Update: {{ last_update_time }}</button>
             <form method="POST" action="/convert" class="mt-4">
-                <div class="form-row align-items-center">
+                <div class="form-row align-items-center boxInput">
                     <div class="col-md-4">
                     <!-- Input field for the amount -->
                         <!-- <input type="text" name="amount" id="amount" placeholder="Enter amount" required inputmode="numeric">-->
@@ -67,7 +72,7 @@
                     </div>
                 </div>
             </form>
-            <button class="time-button" id="nextUpdateBtn">Next Update: {{ next_update_time }}</button>
+            <button class="time-button boxInput"  id="nextUpdateBtn">Next Update: {{ next_update_time }}</button>
         </div>
     </div>
 </body>
