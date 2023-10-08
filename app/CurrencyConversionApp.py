@@ -55,8 +55,6 @@ def convert():
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
         return render_template('error.html', error_message=error_message)
-
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use 5000 as the default port if PORT is not defined
-    app.run(host='0.0.0.0', port=port)
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000)) # Use 5000 as the default port if PORT is not defined
+    app.run(host='0.0.0.0', port=port, debug=True)
